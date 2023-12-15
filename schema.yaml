@@ -1,0 +1,38 @@
+openapi: 3.0.3
+info:
+  title: OpenAPI schema for template tencentcloud-cos
+components:
+  schemas:
+    variables:
+      type: object
+      required:
+      - bucket_prefix
+      properties:
+        bucket_prefix:
+          title: Bucket Prefix
+          type: string
+          description: The name prefix of the COS bucket, the format of full bucket
+            name is [bucket_prefix]-[appid]
+          x-walrus-ui:
+            order: 1
+        acl:
+          title: ACL
+          type: string
+          description: 'The canned ACL to apply. Valid values: private, public-read,
+            and public-read-write. Defaults to private'
+          default: private
+          nullable: true
+          enum:
+          - private
+          - public-read
+          - public-read-write
+          x-walrus-ui:
+            order: 2
+        multi_az:
+          title: Multi AZ
+          type: boolean
+          description: Indicates whether to create a bucket of multi available zone
+          default: false
+          nullable: true
+          x-walrus-ui:
+            order: 3
